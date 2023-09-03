@@ -35,7 +35,7 @@ namespace NFDBLab.Controllers
         /// 取得指定文章
         /// </summary>
         /// <param name="id">文章 id (article_ID)</param>
-        /// <returns>回應200與陣列該文章物件</returns>
+        /// <returns>找無該文章回應404，成功取得回應200與陣列該文章物件</returns>
         // GET api/article/GetSingle/1
         [HttpGet]
         public IHttpActionResult GetSingle(int id)
@@ -43,7 +43,6 @@ namespace NFDBLab.Controllers
             DataTable dt = _service.GetSingle(id);
             if (dt.Rows.Count == 0)
             {
-
                 return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound));
             }
             return this.Ok(dt);
