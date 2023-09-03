@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest  # 選擇運行環境
+    runs-on: windows-latest  # 選擇運行環境，這邊是使用 Windows 環境，是.NET Framework 需求的運行環境
 
     steps:
     - name: Checkout code  # 檢出代碼庫的內容，以便後續操作可以使用代碼
