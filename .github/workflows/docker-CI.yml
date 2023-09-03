@@ -16,15 +16,11 @@ jobs:
     - name: Checkout code  # 檢出代碼庫的內容，以便後續操作可以使用代碼
       uses: actions/checkout@v3
 
-    - name: Build the Docker image
-    	# --force-rm 映像建構完成後，立即刪除中間容器，以節省磁盤空間
-    	# 加入需求的參數source
-     	# 根據 Dockerfile 的位置設置路徑
+    - name: Build the Docker image  # --force-rm 映像建構完成後，立即刪除中間容器，以節省磁盤空間 # 加入需求的參數source # 根據 Dockerfile 的位置設置路徑
       run: |
         docker build --force-rm -t nf-db-lab --build-arg "source=obj\Docker\empty" ./NFDBLab  
 
-    - name: Run the container
-    	# -P 將使用中的容器端口，映射到宿主機的隨機端口
+    - name: Run the container  # -P 將使用中的容器端口，映射到宿主機的隨機端口
       run: |
         docker run -P -d --name my-container nf-db-lab
 
